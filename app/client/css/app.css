@@ -1,0 +1,11 @@
+/* CSS declarations go here */
+
+.content {margin-bottom: 45px}
+
+.alert-info {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    font-size: 12px;
+    padding-right: 15px;
+}

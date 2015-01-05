@@ -1,0 +1,126 @@
+<template name="home">
+   <header class="bar bar-nav">
+      <input class="pull-left" style="width: 75%" type="search" placeholder="Search">
+      <a id="addItem" class="icon icon-plus pull-right"></a>
+   </header>
+
+   <div class="content">
+      <ul class="table-view">
+          {{#each passwords}}
+             <li class="table-view-cell media">
+                <img class="media-object pull-left" src="http://placehold.it/16x16">
+
+                <div class="media-body">
+                    {{site}}
+                   <p>{{url}}</p>
+
+                   <p>{{userName}}</p>
+
+                   <a class="btn btn-primary pull-left" id="showDeviceList">To Device</a>
+                   <a id="pwdToClipBoard" class="btn btn-positive pull-right">To Clipboard</a>
+                </div>
+             </li>
+             <li class="table-view-cell table-view-divider"></li>
+          {{/each}}
+      </ul>
+   </div>
+
+   <nav class="bar bar-tab">
+      <a class="tab-item active" href="#">
+         <span class="icon icon-home"></span>
+         <span class="tab-label">Home</span>
+      </a>
+      <a class="tab-item" href="#">
+         <span class="icon icon-star-filled"></span>
+         <span class="tab-label">Favorites</span>
+      </a>
+      <a class="tab-item" href="#">
+         <span class="icon icon-gear"></span>
+         <span class="tab-label">Settings</span>
+      </a>
+   </nav>
+
+   <!--the modal for adding a new password entry-->
+   <div id="newItem" class="modal">
+      <header class="bar bar-nav">
+         <a id="saveNewItem" class="btn btn-primary pull-left" href="#">Save</a>
+         <a id="closeNewItem" class="icon icon-close pull-right" href="#"></a>
+
+         <h1 class="title">New Password</h1>
+      </header>
+
+      <div class="content">
+         <form class="input-group">
+            <div class="card">
+               <ul class="table-view">
+                  <li class="table-view-cell alert-info">Enter the domain name for which this password is valid</li>
+               </ul>
+            </div>
+            <div class="input-row">
+               <label>Domain</label>
+               <input type="text" placeholder="whatever.com">
+            </div>
+            <div class="card">
+               <ul class="table-view">
+                  <li class="table-view-cell alert-info">If the password should only be valid for a specific
+                     sub-domain, you can specify it here (leave blank for all hosts)</li>
+               </ul>
+            </div>
+            <div class="input-row">
+               <label>host</label>
+               <input type="text" placeholder="www">
+            </div>
+
+            <div class="card">
+               <ul class="table-view">
+                  <li class="table-view-cell alert-info">If the password is valid only for a particular path, you
+                     can enter it here</li>
+               </ul>
+            </div>
+            <div class="input-row">
+               <label>Path</label>
+               <input type="text" placeholder="/myParticularPath">
+            </div>
+
+            <ul class="table-view">
+               <li class="table-view-cell">HTTP
+                  <div id="http" class="toggle active">
+                     <div class="toggle-handle"></div>
+                  </div>
+               </li>
+               <li class="table-view-cell">HTTPS
+                  <div id="https" class="toggle active">
+                     <div class="toggle-handle"></div>
+                  </div>
+               </li>
+            </ul>
+
+            <div class="card">
+               <div class="input-row">
+                  <label>host</label>
+                  <input type="password" placeholder="enter a password">
+               </div>
+               <a class="btn btn-primary">generate</a>
+            </div>
+
+         </form>
+      </div>
+   </div>
+
+   <!--the modal for deciding to which device the password should be sent in case the password was not requested-->
+   <div id="deviceList" class="modal">
+      <header class="bar bar-nav">
+         <a id="closeDeviceList" class="icon icon-close pull-right" href="#"></a>
+
+         <h1 class="title">Modal</h1>
+      </header>
+
+      <div class="content">
+         <p class="content-padded">The contents of my modal go here. Lorem ipsum dolor sit amet, consectetur adipisicing
+            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut.</p>
+      </div>
+   </div>
+
+</template>
+
